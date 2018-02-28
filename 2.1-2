@@ -1,0 +1,13 @@
+Q:Rewrite the INSERTION-SORT procedure to sort into nonincreasing instead of nondecreasing order.
+
+A:
+  for(int i=1;i<arrays.length;i++){
+    int key = arrays[i];
+    int j = i-1;
+    while(j>=0 && s[j]>key){
+      s[j+1] = s[j];
+      j--;
+    }
+    
+    s[j+1] = key;
+  }
