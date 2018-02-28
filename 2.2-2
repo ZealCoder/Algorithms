@@ -1,0 +1,32 @@
+Q:
+ Consider sorting n numbers stored in array A by first finding the smallest element
+ of A and exchanging it with the element in AŒ1. Then find the second smallest
+ element of A, and exchange it with AŒ2. Continue in this manner for the first n1
+ elements of A. Write pseudocode for this algorithm, which is known as selection
+ sort. What loop invariant does this algorithm maintain? Why does it need to run
+ for only the first n  1 elements, rather than for all n elements? Give the best-case
+ and worst-case running times of selection sort in ‚-notation.
+ 
+ A:
+      public int[] select_sort(int[] arrays){
+        if(arrays==null){
+            return null;
+        }
+
+        for(int i=0;i<arrays.length;i++){
+            int key = arrays[i];
+            int minIndex = i;
+            for(int j=i+1;j<arrays.length;j++){
+                if(arrays[j]<key){
+                  key = arrays[j];
+                  minIndex = j;
+                }
+            }
+
+            int t = arrays[minIndex];
+            arrays[minIndex] = arrays[i];
+            arrays[i] = t;
+        }
+
+        return arrays;
+    }
