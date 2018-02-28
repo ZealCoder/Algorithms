@@ -1,0 +1,6 @@
+Q:
+ Express the function n3=1000/100n2 - 100n + 3 in terms of ‚-notation.
+ 
+A:
+  O(n3)
+  
