@@ -1,0 +1,42 @@
+public int[] merge_sort(int[] arrays,int p,int r){
+        if(p<r){
+            int q = (p+r)/2;
+            merge_sort(arrays,p,q);
+            merge_sort(arrays,q+1,r);
+            merge(arrays,p,q,r);
+        }
+        return arrays;
+    }
+    
+    public int[] merge(int[] arrays,int p,int q,int r){
+        int n1 = q - p + 1;
+        int n2 = r - q;
+        int[] left = new int[n1+1];
+        int[] right = new int[n2+1];
+
+        for(int i=0;i<n1;i++){
+            left[i] = arrays[p+i];
+        }
+
+        left[n1] = Integer.MAX_VALUE;
+
+        for(int j = 0;j<n2;j++){
+            right[j] = arrays[q+j+1];
+        }
+
+        right[n2] = Integer.MAX_VALUE;
+
+        int i = 0;
+        int j = 0;
+
+        for(int k=p;k<r+1;k++){
+            if(left[i]<right[j]){
+                arrays[k] = left[i];
+                i++;
+            }else{
+                arrays[k] = right[j];
+                j++;
+            }
+        }
+        return arrays;
+    }
